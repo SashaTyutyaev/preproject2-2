@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars List</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1>List of Cars</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Model</th>
+            <th>Series</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.model}">Model</td>
+            <td th:text="${car.series}">Series</td>
+        </tr>
+        <tr th:if="${#lists.isEmpty(cars)}">
+            <td colspan="2">No cars available</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
